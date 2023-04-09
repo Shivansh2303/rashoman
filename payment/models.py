@@ -1,17 +1,15 @@
 from django.db import models
-from django.dispatch import receiver
 from django.contrib.auth import get_user_model
-from django.db.models.signals import post_save
+from article.models import Article
 
 UserModel=get_user_model()
 
-class Payment(models.Model):
-    user=models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    payment_success=models.BooleanField(default=False)
-    checkout_id=models.CharField(max_length=500)
-    
-@receiver(post_save, sender=UserModel)
-def user_payment(sender,instance,created, **kwargs):
-    if created:
-        UserPayment.objects.create(user=instance)
-    
+class PaymentHistory(models.Model):
+    owner=models.ForeignKey(UserModel, on_delete=models.CASCADE, blank=True, null=True)
+    blog=models.ForeignKey(Article, on_delete=models.SET_NULL, blank=True, null=True)
+    date=models.DateTimeField(auto_now_add=True)
+    payment_status=models.BooleanField()
+
+
+    def __str__(self):
+        return self.blog.title

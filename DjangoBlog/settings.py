@@ -88,6 +88,9 @@ EMAIL_HOST_USER =config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
 
+clientID="AQhQTEn5LGs-4i77uehAdFeUJjZ0wI6hJ8hllIiilRXQJ9cPltseBE61Cmj6Ks-xB-VFypp5n9L2AjY8"
+clientSecret="EDKo7UYr7v9QaAoo2v9HF3vdD_pjeyoWdCWXCE3XS0JOOFWHE3GvbIYKb6jK44pmZDS2UtfAWdIC53SF"
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -198,3 +201,10 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+SITE_URL="http://127.0.0.1:8000/"
+
+# Paypal Settings
+PAYPAL=True
+PAYPAL_RECEIVER_EMAIL='paypal@mail.com'
+
+

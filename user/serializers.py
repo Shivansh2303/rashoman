@@ -56,6 +56,3 @@ class UserProfileSerialzer(serializers.ModelSerializer):
     class Meta:
         model=CustomUser
         fields=['id','name','email','date_joined','profile_image']
-        
-            
-            

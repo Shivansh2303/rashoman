@@ -39,7 +39,7 @@ class UserRegisterAPIView(generics.CreateAPIView):
         token=RefreshToken.for_user(user).access_token
         absurl="http://"+current_site+reverse_link+"?token="+str(token)
         
-        body="Almost done,<br>"+user_data['name']+" to secure your account, we just need to verify your email address: "+email+"."+"<br>This will let you receive notification and password reset."+"<br> Click the following link or paste it into your browser: <br> "+absurl
+        body="Almost done, "+user_data['name']+" to secure your account, we just need to verify your email address: "+email+"."+"This will let you receive notification and password reset."+" Click the following link or paste it into your browser:  "+absurl
         data={
             'subject':"Email verification for new user",
             'message':body,
@@ -62,7 +62,7 @@ class EmailVerificationAPIView(generics.GenericAPIView):
             user.is_active=True
             user.is_staff=True
             user.save()
-            return Response({"Success Message: ":"Your has been verified ans successfully verified."})
+            return Response({"Success Message: ":"Your has been successfully verified."})
         except jwt.ExpiredSignatureError as identifier:
             return Response({'error':"Activation link expires."})
         except jwt.exceptions.DecodeError as identifier:
@@ -87,7 +87,6 @@ class LoginAPIView(generics.GenericAPIView):
             'message':'you are successfully logged in.'
         }
         except request.user.is_anonymous:
-            print("Not a valid user")
             response={
                 'msg':"the user is anonymus"
             }    

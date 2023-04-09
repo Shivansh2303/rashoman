@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "django blog"
+version = "0.1.0"
+description = ""
+authors = ["shivansh <shivanshkate@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+python-decouple = "^3.8"
+pillow = "^9.5.0"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+djangorestframework-jwt = "^1.11.0"
+drf-yasg = "^1.21.5"
+stripe = "^5.4.0"
+paypal = "^1.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

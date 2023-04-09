@@ -43,6 +43,7 @@ urlpatterns = [
     
     path('api/v1/', include("article.urls")),
     path('api/v2/', include("user.urls")),
+    path('api/v3/', include("payment.urls")),
     
     path('verify-email/',EmailVerificationAPIView.as_view(),name='verify-email'),
     
